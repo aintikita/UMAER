@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             x:Class="FrontendMAUI.Views.Enfermeria.GraficaConstantesPage"
+             BackgroundImageSource="fondo_app.png">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="20"/>
+            
+            <!-- Título de la página -->
+            <Label Text="Gráfica de Constantes"
+                   FontSize="45"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="White"/>
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="25"/>
+
+            <!-- Selección de las constantes a graficar -->
+            <Label Text="Selecciona las constantes a graficar" HorizontalOptions="Center" 
+                   FontAttributes="Bold" FontSize="16" TextColor="White"/>
+
+            <Grid ColumnDefinitions="*,*,*"
+      RowDefinitions="Auto,Auto"
+                  HorizontalOptions="Center"
+      ColumnSpacing="10"
+      RowSpacing="10">
+
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarTemperatura}" />
+                    <Label Text="Temperatura" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarFC}" />
+                    <Label Text="Frecuencia Cardíaca" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="0" Grid.Column="2" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarFR}" />
+                    <Label Text="Frecuencia Respiratoria" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarTsis}" />
+                    <Label Text="Tensión Sistólica" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarTdia}" />
+                    <Label Text="Tensión Diastólica" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="2" Spacing="5">
+                    <CheckBox IsChecked="{Binding MostrarSat}" />
+                    <Label Text="Saturación" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+            </Grid>
+
+
+            <!-- Gráfica -->
+            <Grid HeightRequest="300" VerticalOptions="Center">
+                <lc:CartesianChart x:Name="ConstantesChart"
+                                   Series="{Binding ChartSeries}"
+                                   XAxes="{Binding XAxes}"
+                                   YAxes="{Binding YAxes}" />
+            </Grid>
+
+            <!-- Botón para exportar a PDF -->
+            <Button Text="📄 Exportar a PDF"
+                    BackgroundColor="#3B5998"
+                    TextColor="White"
+                    FontSize="18"
+                    Padding="15"
+                    CornerRadius="8"
+                    Clicked="OnExportarPdfClicked"
+                    HorizontalOptions="Center"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

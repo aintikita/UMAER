@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.PaginaPrincipal.PaginaPrincipalPage"
+             BackgroundColor="#2564af">
+
+    <Grid x:Name="RootGrid"
+          ColumnDefinitions="*,*"
+          Padding="10"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand"
+          WidthRequest="800">
+
+        <!-- Columna izquierda: texto e imagen -->
+        <VerticalStackLayout x:Name="LeftPanel"
+                             Grid.Column="0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="20">
+
+            <Label Text="UMAER MEDICINAS"
+                   TextColor="White"
+                   FontSize="38"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="ALWAYS WITH YOU"
+                   TextColor="White"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Image x:Name="LogoImage"
+                   Source="umaer_icon.png"
+                   WidthRequest="400"
+                   HeightRequest="400"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Columna derecha: botón y registro -->
+        <VerticalStackLayout x:Name="RightPanel"
+                             Grid.Column="1"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="25">
+
+            <Button Text="GET STARTED"
+                    Clicked="OnGetStartedClicked"
+                    BackgroundColor="White"
+                    TextColor="#507CFF"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    CornerRadius="20"
+                    Padding="20,10"
+                    WidthRequest="200" />
+
+            <Label Text="Don't have an account?"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Sign in here"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSignInTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
+

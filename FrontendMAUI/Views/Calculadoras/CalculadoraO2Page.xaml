@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Página principal de la calculadora de oxígeno.
+    Permite al usuario elegir entre calcular cuántas botellas necesita o cuántas horas de oxígeno tiene disponibles.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Calculadoras.CalculadoraO2Page"
+             BackgroundImageSource="fondo_app.png">
+
+    <!-- Grid principal con dos filas: título y botones de opciones -->
+    <Grid Padding="100" VerticalOptions="FillAndExpand" HorizontalOptions="Center"
+          RowSpacing="200">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Título de la calculadora -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="1000">
+            <Label Text="Calculadora O2"
+                FontSize="45"
+                FontAttributes="Bold"
+                TextColor="White"
+                HorizontalOptions="Center"
+                Grid.Row="0" />
+        </HorizontalStackLayout>
+
+        <!-- Botones para seleccionar el tipo de cálculo -->
+        <StackLayout Spacing="20" VerticalOptions="Start" Grid.Row="1" HorizontalOptions="Center">
+            <!-- Botón para ir a la calculadora de botellas de oxígeno -->
+            <Button Text="Cálculo de Botellas"
+                WidthRequest="250"
+                HeightRequest="60"
+                FontSize="20"
+                Clicked="OnCalculoBotellasClicked" />
+
+            <!-- Botón para ir a la calculadora de horas de oxígeno -->
+            <Button Text="Cálculo de Horas"
+                WidthRequest="250"
+                HeightRequest="60"
+                FontSize="20"
+                Clicked="OnCalculoHorasClicked" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

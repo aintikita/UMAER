@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Enfermeria.MedicacionPage"
+             BackgroundImageSource="fondo_app.png">
+    <VerticalStackLayout Spacing="30" Padding="80" VerticalOptions="FillAndExpand">
+
+        <Label Text="Medicaciones del paciente"
+           FontSize="40"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           TextColor="White"/>
+
+        <BoxView BackgroundColor="Transparent" HeightRequest="40"/>
+
+        <ScrollView VerticalOptions="FillAndExpand">
+            <ListView x:Name="MedicacionesListView"
+              ItemsSource="{Binding Medicaciones}"
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              BackgroundColor="Transparent"
+                      WidthRequest="900"
+              HeightRequest="420">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5"
+                           Padding="10"
+                           CornerRadius="10"
+                           BackgroundColor="#f5f5f5">
+                                <VerticalStackLayout Spacing="5">
+
+                                    <Label Text="{Binding fechaHora, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}"
+                                   FontAttributes="Bold"
+                                   FontSize="18"/>
+
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="Medicamento:" FontAttributes="Bold" FontSize="18"/>
+                                        <Label Text="{Binding medicamento}" FontSize="18"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="Dosis:" FontAttributes="Bold" FontSize="18"/>
+                                        <Label Text="{Binding dosis}" FontSize="18"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="Frecuencia:" FontAttributes="Bold" FontSize="18"/>
+                                        <Label Text="{Binding frecuencia}" FontSize="18"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="Observaciones:" FontAttributes="Bold" FontSize="18"/>
+                                        <Label Text="{Binding observaciones}" FontSize="18"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                                        <Button Text="Editar"
+                                        Clicked="OnEditarMedicacionClicked"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="#4CAF50"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        WidthRequest="70"
+                                        HeightRequest="30"/>
+                                        <Button Text="Eliminar"
+                                        Clicked="OnEliminarMedicacionClicked"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="#F44336"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        WidthRequest="90"
+                                        HeightRequest="30"/>
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+
+        <Button Text="Agregar Medicación"
+            BackgroundColor="#5E2CED"
+            TextColor="White"
+            CornerRadius="10"
+            HeightRequest="50"
+            WidthRequest="500"
+            Clicked="OnAgregarMedicacionClicked"
+            HorizontalOptions="Fill" />
+
+    </VerticalStackLayout>
+</ContentPage>

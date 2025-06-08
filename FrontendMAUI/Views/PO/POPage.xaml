@@ -1,0 +1,108 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="namespace:FrontendMAUI.Converters"
+             x:Class="FrontendMAUI.Views.PO.POPage"
+             BackgroundImageSource="fondo_app.png">
+
+    <Grid Padding="30" RowDefinitions="Auto,*">
+        <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="Center"
+                             Padding="30"
+                             Spacing="5"
+                             WidthRequest="1000"
+                             Grid.Row="0">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="1000">
+                <Label Text="📁" FontSize="50" VerticalOptions="Center" />
+                <Label Text="DOCUMENTOS P.O" FontSize="45" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="90"/>
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" Margin="0,0,0,10" Padding="0" WidthRequest="1000">
+
+                <!-- Botón Volver alineado a la izquierda -->
+                <Button Text="⬅️ Volver"
+x:Name="VolverBtn"
+Clicked="VolverBtn_Clicked"
+IsVisible="False"
+HorizontalOptions="Start"
+BackgroundColor="#6A4CFF"
+TextColor="White"
+CornerRadius="10"
+FontSize="18"
+Padding="15,5" />
+
+                <!-- Espaciador para separar botones -->
+                <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" />
+
+                <!-- Botón Añadir archivo alineado a la derecha -->
+                <Button Text="➕ Añadir archivo"
+x:Name="AñadirArchivoBtn"
+Clicked="AñadirArchivoBtn_Clicked"
+HorizontalOptions="End"
+BackgroundColor="#4CAF50"
+TextColor="White"
+CornerRadius="10"
+FontSize="18"
+Padding="15,5" />
+
+                <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" />
+
+                <!-- Botón Crear Carpeta alineado a la derecha junto al botón Añadir archivo -->
+                <Button Text="📂 Crear carpeta"
+                    x:Name="CrearCarpetaBtn"
+                    Clicked="CrearCarpetaBtn_Clicked"
+                    HorizontalOptions="End"
+                    BackgroundColor="#cea54a"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontSize="18"
+                    Padding="15,5" />
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+
+        <ListView x:Name="POList"
+                  Grid.Row="1"
+                      ItemsSource="{Binding}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                  WidthRequest="950"
+                      BackgroundColor="Transparent"
+                      ItemTapped="POList_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="15"
+                                   Margin="10"
+                                   BackgroundColor="#f5f5f5"
+                                   BorderColor="#dbdbdb"
+                                           WidthRequest="950"
+                                   CornerRadius="20"
+                                   HasShadow="True">
+                                        <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                                            <Label Text="{Binding EsCarpeta, Converter={StaticResource BoolToEmojiConverter}}"
+                                           FontSize="50"
+                                           HorizontalOptions="Center" />
+                                            <Label Text="{Binding Nombre}"
+                                           FontSize="22"
+                                           FontAttributes="Bold"
+                                           TextColor="Black"
+                                           HorizontalOptions="Center"
+                                           LineBreakMode="TailTruncation"
+                                           MaxLines="2" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+        
+    </Grid>
+</ContentPage>
+
+
+

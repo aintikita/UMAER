@@ -1,0 +1,81 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Enfermeria.RegistroConstantesPage"
+             Title="{Binding Titulo}"
+             BackgroundColor="#2564af">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+
+            <!-- Título dinámico -->
+            <Label x:Name="TituloLabel"
+                   Text="Nueva constante"
+                   FontSize="45"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="20"
+                   WidthRequest="800"
+                   HeightRequest="500"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="TemperaturaEntry"
+                               Placeholder="Temperatura (°C)"
+                               Keyboard="Numeric"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="FrecuenciaCardiacaEntry"
+                               Placeholder="Frecuencia Cardiaca (bpm)"
+                               Keyboard="Numeric"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="FrecuenciaRespiratoriaEntry"
+                               Placeholder="Frecuencia Respiratoria (rpm)"
+                               Keyboard="Numeric"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="SaturacionOxigenoEntry"
+                               Placeholder="Saturación de Oxígeno (%)"
+                               Keyboard="Numeric"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="PresionArterialEntry"
+                               Placeholder="Presión Arterial"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Guardar"
+                    BackgroundColor="White"
+                    TextColor="#5E2CED"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    WidthRequest="500"
+                    HeightRequest="50"
+                    Clicked="OnGuardarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Página de chat para interactuar con el chatbot.
+    Muestra los mensajes en formato burbuja y permite enviar preguntas al backend.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.ChatBot.ChatBotPage"
+             Title="ChatBotPage">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Área de mensajes del chat (scrollable) -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout x:Name="MensajesLayout" Spacing="10" />
+        </ScrollView>
+
+        <!-- Barra inferior: entrada de texto y botón enviar -->
+        <Grid Grid.Row="1" ColumnSpacing="10" Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!-- El Entry ocupa todo el espacio disponible -->
+                <ColumnDefinition Width="Auto" />
+                <!-- El botón se ajusta a su contenido -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Campo de entrada para la pregunta del usuario -->
+            <Entry x:Name="PreguntaEntry"
+                   Grid.Column="0"
+                   Placeholder="Escribe tu pregunta..."
+                   FontSize="14"
+                   Margin="0"
+                   VerticalOptions="Center"
+                   HeightRequest="48" />
+
+            <!-- Botón para enviar la pregunta -->
+            <Button Text="Enviar"
+                    Grid.Column="1"
+                    Clicked="OnEnviarClicked"
+                    BackgroundColor="#2564af"
+                    TextColor="White"
+                    Padding="15,5"
+                    HeightRequest="48"
+                    MinimumWidthRequest="100" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

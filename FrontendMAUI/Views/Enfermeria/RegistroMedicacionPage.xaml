@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Enfermeria.RegistroMedicacionPage"
+             Title="{Binding Titulo}"
+             BackgroundColor="#2564af">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+
+            <!-- Título dinámico -->
+            <Label x:Name="TituloLabel"
+                   Text="Nueva medicación"
+                   FontSize="45"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   Padding="20"
+                   WidthRequest="800"
+                   HeightRequest="500"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="MedicamentoEntry"
+                               Placeholder="Medicamento"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="DosisEntry"
+                               Placeholder="Dosis"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Entry x:Name="FrecuenciaEntry"
+                               Placeholder="Frecuencia"
+                               TextColor="Black"
+                               HeightRequest="60" />
+                    </Frame>
+
+                    <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                        <Editor x:Name="ObservacionesEditor"
+                            Placeholder="Observaciones"
+                            HeightRequest="180"
+                            TextColor="Black" />
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Guardar"
+                    BackgroundColor="White"
+                    TextColor="#5E2CED"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    WidthRequest="500"
+                    HeightRequest="50"
+                    Clicked="OnGuardarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

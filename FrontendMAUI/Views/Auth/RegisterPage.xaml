@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Página de registro de usuario.
+    Muestra un formulario para crear una nueva cuenta, con validación y feedback visual.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Auth.RegisterPage"
+             BackgroundColor="#2564af">
+    <!-- Grid principal: divide la pantalla en dos columnas -->
+    <Grid ColumnDefinitions="*,Auto" Padding="0" ColumnSpacing="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <!-- Columna izquierda: imagen decorativa o logo -->
+        <Image Source="umaer_icon.png" Aspect="AspectFit" WidthRequest="400" HeightRequest="400" />
+
+        <!-- Columna derecha: tarjeta con el formulario de registro -->
+        <Frame Grid.Column="1"
+               BackgroundColor="White"
+               Padding="30"
+               WidthRequest="350"
+               CornerRadius="20"
+               HasShadow="True"
+               VerticalOptions="Center">
+
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Título del formulario -->
+                <Label Text="Crear nueva cuenta"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Campo: Usuario -->
+                <Label Text="Usuario" />
+                <Entry x:Name="txtNuevoUsuario" 
+                       TextColor="Black" Placeholder="Usuario" BackgroundColor="#f2f2f2" />
+
+                <!-- Campo: Contraseña -->
+                <Label Text="Contraseña" />
+                <Entry x:Name="txtNuevaPassword" 
+                       TextColor="Black" Placeholder="Contraseña" IsPassword="True" BackgroundColor="#f2f2f2" />
+
+                <!-- Campo: Confirmar contraseña -->
+                <Label Text="Confirmar contraseña" />
+                <Entry x:Name="txtConfirmarPassword" 
+                       TextColor="Black" Placeholder="Confirmar contraseña" IsPassword="True" BackgroundColor="#f2f2f2" />
+
+                <!-- Campo: Contraseña del administrador (para validación especial) -->
+                <Label Text="Contraseña del administrador" />
+                <Entry x:Name="txtClaveAdmin" 
+                       TextColor="Black" Placeholder="Contraseña admin" IsPassword="True" BackgroundColor="#f2f2f2" />
+
+                <!-- Botón para enviar el formulario de registro -->
+                <Button Text="Registrar"
+                        Clicked="OnRegistrarClicked"
+                        BackgroundColor="#6200EE"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50" />
+
+                <!-- Mensaje de error o feedback -->
+                <Label x:Name="lblMensaje" TextColor="Red" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+        </Frame>
+    </Grid>
+</ContentPage>

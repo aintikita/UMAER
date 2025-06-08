@@ -1,0 +1,50 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Menu.MainPage"
+             BackgroundImageSource="fondo_app2.png">
+
+    <Grid>
+
+        <!-- Botón de configuración, suelto -->
+        <ImageButton Source="config_icon.png"
+                 x:Name="BotonConfiguracion"
+                 WidthRequest="30"
+                 HeightRequest="30"
+                 HorizontalOptions="End"
+                 VerticalOptions="End"
+                 Margin="20, 0, 70, 20"
+                 BackgroundColor="Transparent"
+                 Clicked="OnConfigClicked"
+                 IsVisible="False" />
+
+        <!-- Botón de cerrar sesión, suelto también -->
+        <ImageButton Source="cerrar_sesion_icon.png"
+                 x:Name="BotonCerrarSesion"
+                 WidthRequest="30"
+                 HeightRequest="30"
+                 HorizontalOptions="End"
+                 VerticalOptions="End"
+                 Margin="20"
+                 BackgroundColor="Transparent"
+                 Clicked="OnCerrarSesionClicked" />
+
+        <!-- Contenido central -->
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="Center"
+                     Spacing="60">
+
+            <Label Text="BIENVENIDO A UMAER"
+                   FontSize="50"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="white" />
+
+            <Image Source="umaer_icon.png"
+                   WidthRequest="400"
+                   HeightRequest="400"
+                   HorizontalOptions="Center" />
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
+

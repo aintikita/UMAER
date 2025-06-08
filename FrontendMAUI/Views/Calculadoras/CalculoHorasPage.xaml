@@ -1,0 +1,87 @@
+<!--
+    Página para calcular la duración de oxígeno disponible.
+    El usuario ingresa los parámetros y obtiene el resultado estimado.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Calculadoras.CalculoHorasPage"
+             BackgroundImageSource="fondo_app.png">
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="Center"
+                                 Padding="30"
+                                 Spacing="20">
+
+                <!-- Título principal de la calculadora -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="1000">
+                    <Label Text="🕒 Calculadora de Duración de Oxígeno"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White" />
+                </HorizontalStackLayout>
+
+                <!-- Tarjeta visual con los campos de entrada y resultado -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#DDDDDD"
+                       CornerRadius="20"
+                       Padding="30"
+                       HasShadow="True"
+                       WidthRequest="500"
+                       MaximumWidthRequest="600">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <!-- Campo: Litros por botella -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="LitrosBotellaEntry"
+                                   Placeholder="Litros por botella"
+                                   Keyboard="Numeric" />
+                        </Frame>
+
+                        <!-- Campo: Número de botellas -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="NumeroBotellasEntry"
+                                   Placeholder="Número de botellas"
+                                   Keyboard="Numeric" />
+                        </Frame>
+
+                        <!-- Campo: Presión de la botella -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="PresionBotellaEntry"
+                                   Placeholder="Presión de la botella (bar)"
+                                   Keyboard="Numeric" />
+                        </Frame>
+
+                        <!-- Campo: Consumo de oxígeno -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="ConsumoOxigenoEntry"
+                                   Placeholder="Consumo de oxígeno (L/min)"
+                                   Keyboard="Numeric" />
+                        </Frame>
+
+                        <!-- Botón para calcular la duración -->
+                        <Button Text="Calcular"
+                                Clicked="OnCalculateButtonClicked"
+                                BackgroundColor="#5E2CED"
+                                TextColor="White"
+                                CornerRadius="10"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Padding="15,10" />
+
+                        <!-- Etiqueta para mostrar el resultado -->
+                        <Label x:Name="ResultadoLabel"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#333"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
+

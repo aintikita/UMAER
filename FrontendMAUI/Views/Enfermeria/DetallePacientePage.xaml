@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Enfermeria.DetallePacientePage"
+             BackgroundImageSource="fondo_app.png">
+    <ScrollView>
+        <VerticalStackLayout Padding="70" Spacing="5">
+
+            <!-- Datos del paciente -->
+            <Label Text="{Binding Nombre}" 
+                    FontSize="40" 
+                    FontAttributes="Bold" 
+                    HorizontalOptions="Center" 
+                    TextColor="White"/>
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="10"/>
+
+            <HorizontalStackLayout Margin="0,0,0,0" Spacing="5" HorizontalOptions="Center" >
+                <Label Text="Habitación: " FontAttributes="Bold" FontSize="18" TextColor="White"/>
+                <Label Text="{Binding Habitacion}" FontSize="18" TextColor="White"/>
+
+            </HorizontalStackLayout>
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="150"/>
+
+            <!-- Botones en Grid de 2 columnas -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="70,70,70,70" RowSpacing="15" ColumnSpacing="15" >
+
+                <!-- Fila 0 -->
+                <Button Grid.Row="0" Grid.Column="0" Text="+ Añadir constantes" Clicked="OnVerConstantesClicked" 
+                        HeightRequest="60"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="+ Añadir medicación" Clicked="OnVerMedicacionClicked"
+                        HeightRequest="60"/>
+
+                <!-- Fila 1 -->
+                <Button Grid.Row="1" Grid.Column="0" Text="+ Añadir Diuresis" Clicked="OnVerDiuresisClicked"
+                        HeightRequest="60"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="+ Añadir Balance Hídrico" Clicked="OnVerBalanceClicked"
+                        HeightRequest="60"/>
+
+                <!-- Fila 2 -->
+                <Button Grid.Row="2" Grid.Column="0" Text="+ Añadir Cuidados de Enfermería" Clicked="OnVerCuidadosClicked"
+                        HeightRequest="60"/>
+                <Button Grid.Row="2" Grid.Column="1" Text="+ Añadir Alergias" Clicked="OnVerAlergiasClicked"
+                        HeightRequest="60"/>
+
+                <!-- Fila 3 -->
+                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="📊 Ver gráfica" Clicked="OnVerGraficaClicked"
+                        HeightRequest="60"/>
+            </Grid>
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

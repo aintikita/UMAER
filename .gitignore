@@ -1,0 +1,17 @@
+# .NET MAUI
+bin/
+obj/
+*.user
+*.suo
+
+# Kotlin / Gradle
+.gradle/
+build/
+.idea/
+*.iml
+
+# General
+*.log
+.env
+.DS_Store
+Thumbs.db

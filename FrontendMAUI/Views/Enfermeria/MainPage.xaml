@@ -1,0 +1,94 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Enfermeria.MainPage"
+             BackgroundColor="#2564af">
+
+    <Grid Padding="30" RowDefinitions="Auto,*">
+        <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="FillAndExpand" Grid.Row="0">
+
+        <HorizontalStackLayout  Spacing="5" HorizontalOptions="Center" >
+            <!-- Imagen superior -->
+            <Image Source="imagen_medicina.png"
+                HeightRequest="250"
+                HorizontalOptions="Center"
+                Aspect="AspectFit" />
+
+            <!-- Título -->
+            <Label Text="Listado de pacientes"
+                FontSize="40"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="White"
+                Margin="0,100,0,0"/>
+        </HorizontalStackLayout>
+
+        <!-- Botón para añadir -->
+        <Button Text="Añadir Paciente"
+            BackgroundColor="White"
+            TextColor="#2564af"
+            FontAttributes="Bold"
+            FontSize="18"
+            CornerRadius="10"
+            HeightRequest="50"
+            WidthRequest="500"
+            Clicked="OnAddPacienteClicked" />
+        </VerticalStackLayout>
+
+        <ListView x:Name="PacientesListView"
+              ItemsSource="{Binding ListaPacientes}"
+              HasUnevenRows="True"
+                  Grid.Row="1"
+                  WidthRequest="900"
+              SeparatorVisibility="None"
+              BackgroundColor="Transparent"
+              SelectionMode="None">
+        
+
+        <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5"
+                           Padding="15"
+                           CornerRadius="10"
+                           BackgroundColor="#f5f5f5"
+                           HasShadow="True"
+                           WidthRequest="900"
+                               VerticalOptions="Center"
+                           HorizontalOptions="Center">
+                            <VerticalStackLayout Spacing="10">
+
+                                <!-- Nombre del paciente arriba -->
+                                <Label Text="{Binding Nombre}" 
+                                   FontSize="30" 
+                                   FontAttributes="Bold" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="Black"/>
+
+                                <!-- Botones en fila -->
+                                <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                                    <Button Text="Ver"
+                                        Clicked="OnVerPacienteClicked"
+                                        BindingContext="{Binding .}"
+                                        FontSize="14"
+                                        WidthRequest="100" />
+                                    <Button Text="Editar"
+                                        Clicked="OnEditarPacienteClicked"
+                                        BindingContext="{Binding .}"
+                                        FontSize="14"
+                                        WidthRequest="100" />
+                                    <Button Text="Eliminar"
+                                        Clicked="OnEliminarPacienteClicked"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="14"
+                                        WidthRequest="100" />
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    
+    </Grid>
+</ContentPage>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Página de configuración para la gestión de usuarios.
+    Permite buscar, visualizar, seleccionar, editar, eliminar y crear usuarios.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Configuracion.Configuracion_Page"
+             xmlns:local="clr-namespace:FrontendMAUI.Models"
+             BackgroundColor="#2564af">
+
+    <Grid Padding="30" RowDefinitions="Auto,*,Auto">
+
+        <VerticalStackLayout Padding="20" Spacing="15" Grid.Row="0">
+
+        <BoxView BackgroundColor="Transparent" HeightRequest="20"/>
+
+        <!-- Título principal de la sección de usuarios -->
+        <Label Text="Usuarios registrados"
+               FontSize="45"
+               TextColor="white"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <BoxView BackgroundColor="Transparent" HeightRequest="20"/>
+
+        <!-- Barra de búsqueda para filtrar usuarios por nombre -->
+        <SearchBar x:Name="BuscarUsuarioBar"
+                   Placeholder="Buscar usuario..."
+                   TextChanged="BuscarUsuarioBar_TextChanged"
+                   Margin="0,0,0,20" 
+                   WidthRequest="600"
+                   HeightRequest="70"
+                   BackgroundColor="White"
+                   PlaceholderColor="Black"
+                   TextColor="Black"/>
+        </VerticalStackLayout>
+
+        <!-- Lista de usuarios sin selección automática -->
+        <ListView x:Name="UsuariosListView"
+                  Grid.Row="1"
+              ItemsSource="{Binding usuariosFiltrados}" 
+              HasUnevenRows="True"
+              SeparatorVisibility="None"
+              BackgroundColor="Transparent"
+                  HeightRequest="380" WidthRequest="700"
+              SelectionMode="None">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5"
+                           Padding="15"
+                           HasShadow="True"
+                           CornerRadius="12"
+                           BackgroundColor="White">
+                            <Grid ColumnDefinitions="60,*,Auto"
+                              VerticalOptions="Center"
+                              HeightRequest="60">
+
+                                <!-- Círculo con iniciales -->
+                                <Frame WidthRequest="55" HeightRequest="55"
+                                   CornerRadius="27.5"
+                                   BackgroundColor="Purple"
+                                   Padding="0"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HasShadow="False">
+                                    <Label Text="{Binding NombreIniciales}" 
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="22"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center" />
+                                </Frame>
+
+                                <!-- Nombre del usuario -->
+                                <Label Text="{Binding nombreUsuario}"
+                                   Grid.Column="1"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   TextColor="Black" />
+
+                                <!-- Checkbox de selección -->
+                                <CheckBox IsChecked="{Binding IsSeleccionado}"
+                                      Grid.Column="2"
+                                      VerticalOptions="Center"
+                                      HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!-- Botones de acción: editar, eliminar y crear usuario -->
+        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="0,10,0,0"
+                               Grid.Row="2">
+            <Button Text="✏️ Editar"
+                    Clicked="OnEditarUsuarioClicked"
+                    BackgroundColor="White"
+                    TextColor="#2564af"
+                    CornerRadius="10"
+                    Padding="15,5" />
+
+            <Button Text="🗑️ Eliminar"
+                    Clicked="OnEliminarUsuarioClicked"
+                    BackgroundColor="White"
+                    TextColor="#2564af"
+                    CornerRadius="10"
+                    Padding="15,5" />
+
+            <Button Text="➕ Crear"
+                    Clicked="OnCrearUsuarioClicked"
+                    BackgroundColor="White"
+                    TextColor="#2564af"
+                    CornerRadius="10"
+                    Padding="15,5" />
+        </HorizontalStackLayout>
+
+    </Grid>
+
+</ContentPage>

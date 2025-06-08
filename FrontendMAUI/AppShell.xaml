@@ -1,0 +1,65 @@
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:auth="clr-namespace:FrontendMAUI.Views.Auth"
+    xmlns:menu="clr-namespace:FrontendMAUI.Views.Menu"
+    xmlns:po="clr-namespace:FrontendMAUI.Views.PO"
+    xmlns:calc="clr-namespace:FrontendMAUI.Views.Calculadoras"
+    xmlns:maneq="clr-namespace:FrontendMAUI.Views.ManualesEquipos"
+    xmlns:manmed="clr-namespace:FrontendMAUI.Views.ManualesMedicinas"
+    xmlns:moch="clr-namespace:FrontendMAUI.Views.Mochilas"
+    xmlns:enf="clr-namespace:FrontendMAUI.Views.Enfermeria"
+    xmlns:cht="clr-namespace:FrontendMAUI.Views.ChatBot"
+    x:Class="FrontendMAUI.AppShell"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="White">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" ApplyToDerivedTypes="True">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="0,8,0,8" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
+    <FlyoutItem Title="Inicio" Icon="home_icon.png" Route="MainPage">
+        <ShellContent ContentTemplate="{DataTemplate menu:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="P.O." Icon="document_icon.png" Route="POPage">
+        <ShellContent ContentTemplate="{DataTemplate po:POPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Manuales Equipos" Icon="manual_icon.png" Route="ManualesTab">
+        <ShellContent ContentTemplate="{DataTemplate maneq:ManualEquipoPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Manuales Medicina" Icon="manual_icon.png" Route="ManualesMedicinaTab">
+        <ShellContent ContentTemplate="{DataTemplate manmed:ManualMedicinaPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Mochilas" Icon="backpack_icon.png" Route="MochilasPage">
+        <ShellContent ContentTemplate="{DataTemplate moch:MochilaPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Calculadoras O2" Icon="oxygen_icon.png" Route="CalculadorasO2Page">
+        <ShellContent ContentTemplate="{DataTemplate calc:CalculadoraO2Page}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Calculadoras Dosis" Icon="ampoule_icon.png" Route="CalculadorasDosisPage">
+        <ShellContent ContentTemplate="{DataTemplate calc:CalculadoraDosisPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Enfermería" Icon="enfermera_icon.png" Route="EnfermeriaPage">
+        <ShellContent ContentTemplate="{DataTemplate enf:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Chat Bot" Icon="chatbot_icono.png" Route="ChatBotPage">
+        <ShellContent ContentTemplate="{DataTemplate cht:ChatBotPage}" />
+    </FlyoutItem>
+
+</Shell>
+
+
+

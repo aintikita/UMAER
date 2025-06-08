@@ -1,0 +1,75 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Auth.OlvidarContrasenaPage"
+             BackgroundColor="#2564af">
+
+    <Grid ColumnDefinitions="*,Auto" Padding="0" ColumnSpacing="100" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <!-- Columna izquierda: Imagen -->
+        <Image Source="umaer_icon.png" Aspect="AspectFit" WidthRequest="400" HeightRequest="400" />
+
+        <!-- Columna derecha: formulario en tarjeta -->
+        <Frame Grid.Column="1"
+               BackgroundColor="White"
+               Padding="30"
+               WidthRequest="350"
+               CornerRadius="20"
+               HasShadow="True"
+               VerticalOptions="Center">
+
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Título -->
+                <Label Text="¿Olvidaste tu contraseña?"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <!-- Instrucción -->
+                <Label Text="Ingresa tu nombre de usuario y la nueva contraseña."
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="Gray" />
+
+                <!-- Usuario -->
+                <Label Text="Nombre de usuario" />
+                <Entry x:Name="UsuarioEntry"
+                       Placeholder="Usuario"
+                       BackgroundColor="#f2f2f2"
+                       TextColor="Black" />
+
+                <!-- Nueva contraseña -->
+                <Label Text="Nueva contraseña" />
+                <Entry x:Name="NuevaContrasenaEntry"
+                       Placeholder="Nueva contraseña"
+                       IsPassword="True"
+                       BackgroundColor="#f2f2f2"
+                       TextColor="Black" />
+
+                <!-- Confirmación -->
+                <Label Text="Confirmar contraseña" />
+                <Entry x:Name="ConfirmarContrasenaEntry"
+                       Placeholder="Confirmar contraseña"
+                       IsPassword="True"
+                       BackgroundColor="#f2f2f2"
+                       TextColor="Black" />
+
+                <!-- Botón de restablecer -->
+                <Button Text="🔒 Restablecer"
+                        Clicked="OnRestablecerClicked"
+                        BackgroundColor="#6200EE"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50"/>
+
+                <!-- Mensaje de error o feedback -->
+                <Label x:Name="MensajeLabel" TextColor="Red" HorizontalOptions="Center"/>
+
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+
+
+</ContentPage>

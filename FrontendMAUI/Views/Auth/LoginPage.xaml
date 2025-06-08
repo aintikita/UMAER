@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FrontendMAUI.ViewModels"
+             x:Class="FrontendMAUI.Views.Auth.LoginPage"
+             BackgroundColor="#2564af">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid x:Name="RootGrid"
+          Padding="0"
+          ColumnSpacing="100"
+          VerticalOptions="StartAndExpand"
+          HorizontalOptions="CenterAndExpand">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Imagen decorativa -->
+        <Image x:Name="LoginImage"
+               Source="umaer_icon.png"
+               Aspect="AspectFit"
+               WidthRequest="400"
+               HeightRequest="400"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <!-- Formulario de login -->
+        <Frame x:Name="LoginForm"
+               Grid.Column="1"
+               BackgroundColor="White"
+               Padding="30"
+               WidthRequest="350"
+               CornerRadius="20"
+               HasShadow="True"
+               VerticalOptions="StartAndExpand"
+               Margin="0,50,0,50">
+
+            <VerticalStackLayout Spacing="20">
+
+                <Label Text="Welcome back"
+                       FontSize="28"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+
+                <Label Text="Login to your account"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="Gray" />
+
+                <Label Text="Usuario" />
+                <Entry Text="{Binding Usuario}" Placeholder="Usuario"
+                       BackgroundColor="#f2f2f2"
+                       TextColor="Black"/>
+
+                <Label Text="Contraseña" />
+                <Entry Text="{Binding Contrasena}"
+                       Placeholder="Contraseña"
+                       IsPassword="True"
+                       BackgroundColor="#f2f2f2"
+                       TextColor="Black" />
+
+                <Button Text="Iniciar sesión"
+                        Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                        BackgroundColor="#6200EE"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50" />
+
+                <Button Text="Registrarse"
+                        Clicked="OnRegistrarseClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="#6200EE"
+                        FontAttributes="Bold" />
+
+                <Button Text="¿Contraseña Olvidada?"
+                        Margin="0,-30,0,0"
+                        Clicked="OnContrasenaClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="#6200EE"
+                        FontAttributes="Bold" />
+
+                <Label Text="{Binding Mensaje}" TextColor="Red" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

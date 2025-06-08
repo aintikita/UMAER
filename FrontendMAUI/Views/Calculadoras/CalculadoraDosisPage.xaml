@@ -1,0 +1,77 @@
+<!--
+    Página para calcular la dosis total de un medicamento según el peso del paciente.
+    El usuario ingresa la dosis por kg y el peso, y obtiene el resultado.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Calculadoras.CalculadoraDosisPage"
+             BackgroundImageSource="fondo_app.png">
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="Center"
+                                 Padding="30"
+                                 Spacing="160">
+
+                <!-- Título principal de la calculadora -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="1000">
+                    <Label Text="💊 Calculadora de Dosis"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White" />
+                </HorizontalStackLayout>
+
+                <!-- Tarjeta visual con los campos de entrada y resultado -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#DDDDDD"
+                       CornerRadius="20"
+                       Padding="30"
+                       HasShadow="True"
+                       WidthRequest="600"
+                       MaximumWidthRequest="1000">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <!-- Campo: Dosis por kg (mg/kg) -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="DosisPorKgEntry"
+                                   Placeholder="Dosis por kg (mg/kg)"
+                                   Keyboard="Numeric" 
+                                   HeightRequest="60"/>
+                        </Frame>
+
+                        <!-- Campo: Peso corporal (kg) -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="PesoEntry"
+                                   Placeholder="Peso corporal (kg)"
+                                   Keyboard="Numeric"
+                                   HeightRequest="60"/>
+                        </Frame>
+
+                        <!-- Botón para calcular la dosis total -->
+                        <Button Text="Calcular"
+                                Clicked="OnCalculateButtonClicked"
+                                BackgroundColor="#5E2CED"
+                                TextColor="White"
+                                CornerRadius="10"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Padding="15,10" 
+                                HeightRequest="60"/>
+
+                        <!-- Etiqueta para mostrar el resultado -->
+                        <Label x:Name="ResultadoLabel"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#333"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0" />
+
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
+

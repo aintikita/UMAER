@@ -1,0 +1,95 @@
+<!--
+    Página para calcular cuántas botellas de oxígeno se necesitan para un vuelo.
+    El usuario ingresa los parámetros y obtiene el resultado estimado.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontendMAUI.Views.Calculadoras.CalculoBotellasPage"
+             BackgroundImageSource="fondo_app.png">
+    <ScrollView>
+        <Grid>
+            <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="Center"
+                                 Padding="30"
+                                 Spacing="-10">
+
+                <!-- Título principal de la calculadora -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="1000">
+                    <Label Text="🫁 Calculadora de Consumo de Oxígeno"
+                       FontSize="45"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+                </HorizontalStackLayout>
+
+                <!-- Espaciador visual -->
+                <BoxView BackgroundColor="Transparent" HeightRequest="120"/>
+
+                <!-- Tarjeta visual con los campos de entrada y resultado -->
+                <Frame BackgroundColor="White"
+                       BorderColor="#DDDDDD"
+                       CornerRadius="20"
+                       Padding="30"
+                       HasShadow="True"
+                       WidthRequest="600"
+                       MaximumWidthRequest="800">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <!-- Campo: Horas de vuelo -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="HorasDeVueloEntry"
+                                   Placeholder="Horas de vuelo"
+                                   Keyboard="Numeric" 
+                                   HeightRequest="50"/>
+                        </Frame>
+
+                        <!-- Campo: Consumo de oxígeno (L/min) -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="ConsumoOxigenoEntry"
+                                   Placeholder="Consumo de oxígeno (L/min)"
+                                   Keyboard="Numeric" 
+                                   HeightRequest="50"/>
+                        </Frame>
+
+                        <!-- Campo: Presión de la botella (bar) -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="PresionBotellaEntry"
+                                   Placeholder="Presión de la botella (bar)"
+                                   Keyboard="Numeric"
+                                   HeightRequest="50"/>
+                        </Frame>
+
+                        <!-- Campo: Litros de la botella -->
+                        <Frame CornerRadius="10" BorderColor="#FF4081" Padding="0" HasShadow="False" BackgroundColor="Transparent">
+                            <Entry x:Name="LitrosBotellaEntry"
+                                   Placeholder="Litros de la botella"
+                                   Keyboard="Numeric" 
+                                   HeightRequest="50"/>
+                        </Frame>
+
+                        <!-- Botón para calcular el resultado -->
+                        <Button Text="Calcular"
+                                Clicked="OnCalculateButtonClicked"
+                                BackgroundColor="#5E2CED"
+                                TextColor="White"
+                                CornerRadius="10"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Padding="15,10"
+                                HeightRequest="50"/>
+
+                        <!-- Etiqueta para mostrar el resultado -->
+                        <Label x:Name="ResultadoLabel"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#333"
+                               HorizontalOptions="Center"
+                               Margin="0,10,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
+

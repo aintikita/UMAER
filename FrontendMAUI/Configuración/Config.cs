@@ -10,7 +10,7 @@ namespace FrontendMAUI.Configuración
     public static class Config
     {
         // Cambia aquí tu dirección IP cuando sea necesario
-        public const string BackendUrl = "http://192.168.0.166:8082";
+        public const string BackendUrl = "http://192.168.249.44:8081";
     }
 
 }

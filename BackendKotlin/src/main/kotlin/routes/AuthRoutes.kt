@@ -22,11 +22,8 @@ fun Application.authRoutes() {
     routing {
         post("/login") {
             try {
-                val body = call.receive<String>()
-                println("📥 Raw body: $body")
 
                 val datos = call.receive<LoginRequest>()
-
 
                 // 👇 AÑADE ESTO:
                 println("🔐 Intento de login")

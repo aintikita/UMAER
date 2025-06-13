@@ -11,6 +11,7 @@
 
     <Grid x:Name="RootGrid"
           Padding="0"
+          Margin="0,60,0,0"
           ColumnSpacing="100"
           VerticalOptions="StartAndExpand"
           HorizontalOptions="CenterAndExpand">

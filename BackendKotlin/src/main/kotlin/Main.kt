@@ -29,7 +29,7 @@ fun main() {
 
     println("✅ Iniciando servidor en $host:$port")
 
-    embeddedServer(Netty, port = 8082, host = "0.0.0.0") {
+    embeddedServer(Netty, port = 8081, host = "0.0.0.0") {
         module()
         install(CORS) {
             anyHost()

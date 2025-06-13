@@ -8,7 +8,7 @@ import io.ktor.http.*
 import kotlinx.serialization.json.*
 
 object OpenRouterService {
-    private val apiKey = "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" // Reemplaza con tu clave personal
+    private val apiKey = "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" // Reemplaza con tu clave personal
     private val client = HttpClient(CIO)
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -25,7 +25,7 @@ object OpenRouterService {
 
         val response = client.post("https://openrouter.ai/api/v1/chat/completions") {
             headers {
-                append(HttpHeaders.Authorization, "Bearer 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")
+                append(HttpHeaders.Authorization, "Bearer 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")
                 append(HttpHeaders.ContentType, "application/json")
                 append("HTTP-Referer", "http://localhost") // Requerido por OpenRouter
                 append("X-Title", "Chat UMAER") // Opcional: título de tu proyecto
